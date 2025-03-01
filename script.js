@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const squares = document.querySelectorAll(".square");
 
 squares.forEach((square) => {
