@@ -4,12 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus Squares</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .focus-sq {
+            width: 100px;
+            height: 100px;
+            background-color: #E6E6FA;
+            transition: background-color 0.3s;
+        }
+    </style>
 </head>
 <body>
-    <div class="square" id="square1"></div>
-    <div class="square" id="square2"></div>
-    <div class="square" id="square3"></div>
-    <script src="script.js"></script>
+    <div class="container">
+        <div class="focus-sq" id="sq1"></div>
+        <div class="focus-sq" id="sq2"></div>
+        <div class="focus-sq" id="sq3"></div>
+    </div>
+    <script>
+        const squares = document.querySelectorAll(".focus-sq");
+        
+        squares.forEach(square => {
+            square.addEventListener("mouseenter", () => {
+                squares.forEach(sq => {
+                    if (sq !== square) {
+                        sq.style.backgroundColor = "#6F4E37";
+                    }
+                });
+            });
+
+            square.addEventListener("mouseleave", () => {
+                squares.forEach(sq => {
+                    sq.style.backgroundColor = "#E6E6FA";
+                });
+            });
+        });
+    </script>
 </body>
 </html>
